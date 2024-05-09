@@ -1,18 +1,21 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    'node_modules/daisyui/dist/**/*.js',
+    'node_modules/react-daisyui/dist/**/*.js'
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "verde": "#B2B251",
+        "vermelho": "#DA442F",
+        "laranja": "#F4731E",
+        "verde-escuro": "#3D6736"
+       
+      }
+    },
   },
-  plugins: [],
-}
-module.exports = {
-  content: [
-    'node_modules/daisyui/dist/**/*.js',
-    'node_modules/react-daisyui/dist/**/*.js',
-  ],
   plugins: [require('daisyui')],
 }
