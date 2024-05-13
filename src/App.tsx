@@ -1,25 +1,20 @@
 //import React from 'react';
-import './App.css';
-import CardProduto from './components/cardProduto/CardProduto';
-import sabonete from "../src/assets/sabonete.png"
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Login from "./pages/login/Login";
+import { AuthProvider } from "./contexts/AuthContext";
 
 function App() {
-
-  const produtoTeste = {
-    id: 0,
-    nomeProduto: "sabonete",
-    descricaoProduto: "lavar o corpinho",
-    estoque: 13,
-    preco: 13,
-    dataValidade: "2025-12-12",
-    fotoProduto: sabonete,
-    usuario: null,
-    categoria: null
-  }
   return (
-    <div className="flex justify-around">
-    <CardProduto produto={produtoTeste} />
-    </div>
-)
+    <>
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Login />} />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
+    </>
+  );
 }
 export default App;

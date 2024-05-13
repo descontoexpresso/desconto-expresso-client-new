@@ -14,6 +14,9 @@ export default {
         "laranja": "#F4731E",
         "verde-escuro": "#3D6736"
        
+      },
+      backgroundImage: {
+        "fundo-login": "url('./assets/fundo-login.png')"
       }
     },
   },
