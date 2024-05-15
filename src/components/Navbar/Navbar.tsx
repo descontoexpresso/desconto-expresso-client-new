@@ -9,6 +9,8 @@ const Navbar: React.FC = () => {
     switch(location.pathname) {
       case '/home':
         return 'bg-verde';
+      case '/':
+        return 'bg-verde-escuro';
       case '/sobre-nos':
         return 'bg-azul';
       default:
@@ -20,6 +22,8 @@ const Navbar: React.FC = () => {
     switch(location.pathname) {
       case '/home':
         return 'border-verde';
+      case '/':
+        return 'border-verde-escuro';
       case '/sobre-nos':
         return 'border-azul';
       default:
@@ -29,7 +33,7 @@ const Navbar: React.FC = () => {
   
 
   return (
-    <div className="relative bg-white mx-auto my-2  rounded-full max-w-[90%] p-1">
+    <div className="relative bg-white mx-auto rounded-full max-w-[90%] p-1">
       <div className="navbar h-14">
         <div className="navbar-start">
           {/* Dropdown para telas pequenas */}
