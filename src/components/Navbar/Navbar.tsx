@@ -6,31 +6,34 @@ const Navbar: React.FC = () => {
   const location = useLocation();
 
   const searchBarColor = (): string => {
-    switch(location.pathname) {
+    switch (location.pathname) {
       case '/home':
         return 'bg-verde';
       case '/':
         return 'bg-verde-escuro';
       case '/sobre-nos':
         return 'bg-azul';
+      case '/listaProdutos':
+        return 'bg-amarelo-escuro';
       default:
         return 'bg-base-100';
     }
   };
 
   const dynamicBorderColor = (): string => {
-    switch(location.pathname) {
+    switch (location.pathname) {
       case '/home':
         return 'border-verde';
       case '/':
         return 'border-verde-escuro';
       case '/sobre-nos':
         return 'border-azul';
+      case '/listaProdutos':
+        return 'border-amarelo-escuro';
       default:
         return 'border-base-100';
     }
   };
-  
 
   return (
     <div className="relative bg-white mx-auto rounded-full max-w-[90%] p-1">
@@ -46,19 +49,19 @@ const Navbar: React.FC = () => {
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-base-100 rounded-box w-52 text-verde">
               <Link to="/inicio" className="hover:underline">Perfil</Link>
               <Link to="/inicio" className=" hover:underline">Início</Link>
-              <Link to="/produtos" className="hover:underline">Produtos</Link>
+              <Link to="/listaProdutos" className="hover:underline">Produtos</Link>
               <Link to="/sobre-nos" className="hover:underline">Sobre Nós</Link>
             </ul>
           </div>
           {/* Links para telas maiores */}
           <div className="hidden lg:flex space-x-4 text-verde items-center">
-          
-          <Link to="/perfil">
-            <img src="public/assets/logo.png" alt="Imagem de Perfil" className="w-14 h-14 rounded-full btn-ghost hover:bg-green-100" />
-          </Link>
-            
+
+            <Link to="/perfil">
+              <img src="public/assets/logo.png" alt="Imagem de Perfil" className="w-14 h-14 rounded-full btn-ghost hover:bg-green-100" />
+            </Link>
+
             <Link to="/inicio" className="hover:underline">Início</Link>
-            <Link to="/produtos" className="hover:underline">Produtos</Link>
+            <Link to="/listaProdutos" className="hover:underline">Produtos</Link>
             <Link to="/sobre-nos" className="hover:underline">Sobre Nós</Link>
           </div>
 
@@ -68,8 +71,8 @@ const Navbar: React.FC = () => {
             <img src="public/assets/logo.png" alt="Desconto Expresso" className={`w-24 ${dynamicBorderColor()} border-8 rounded-full`}/>
           </div>
         </div>
-        
-          <div className="navbar-end">
+
+        <div className="navbar-end">
           <div className={`search-bar ${searchBarColor()} flex items-center justify-center rounded-full p-2`} >
             {/* Ícone de busca */}
             <Link to="/caminho-para-pesquisa">

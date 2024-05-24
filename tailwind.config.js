@@ -15,7 +15,7 @@ export default {
         "verde-escuro": "#3D6736",
         "azul-escuro":"#2A3671",
         "amarelo":"#FBC540",
-        "verde-amarelado":"#E6E6A2",
+        "verde-amarelado":"#DBDB90",
         "azul-claro":"#94A4F1",
         "amarelo-claro":"#FFE486",
         "laranja-claro":"#FFC46D",
@@ -23,7 +23,10 @@ export default {
         "verde-claro":"#BFC71A",
         "amarelo-escuro":"#DBA726",
         "vermelho-claro":"#EF7160",
-       
+      },
+      fontFamily: {
+        sans: ['Urbanist', 'sans-serif'],
+        urbanist: ['Urbanist', 'sans-serif'],
       },
       backgroundImage: {
         "fundo-login": "url('./assets/fundo-login.png')"
