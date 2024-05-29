@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const handleSearch = () => {
+    if (searchQuery.trim() !== '') {
+      navigate(`/listaProdutos?search=${searchQuery}`);
+    }
+  };
+
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  };
 
   const searchBarColor = (): string => {
     switch (location.pathname) {
@@ -75,11 +93,14 @@ const Navbar: React.FC = () => {
         <div className="navbar-end">
           <div className={`search-bar ${searchBarColor()} flex items-center justify-center rounded-full p-2`} >
             {/* Ícone de busca */}
-            <Link to="/caminho-para-pesquisa">
+            <button onClick={handleSearch}>
               <FaSearch className="text-xl text-white lg:text-white" />
-            </Link>
+            </button>
             {/* Barra de pesquisa responsiva */}
             <input
+              value={searchQuery}
+              onChange={handleSearchInputChange}
+              onKeyPress={handleKeyPress}
               placeholder="Buscar Produto"
               className={`input ${searchBarColor()} focus:outline-none h-6 text-white placeholder-white lg:w-full w-24 transition-width duration-300`}
             />

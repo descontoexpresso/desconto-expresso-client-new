@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useContext, useEffect, useState } from "react";
 import { DNA } from 'react-loader-spinner';
 import { AuthContext } from "../../../contexts/AuthContext";
@@ -6,19 +7,19 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Categoria from './../../../models/Categoria';
-import Navbar from '../../../components/Navbar/Navbar';
+import Navbar from '../../navbar/Navbar';
 import Produto from "../../../models/Produto";
 import CardProduto from "../cardProduto/CardProduto";
 import CardCategorias from "../../categorias/cardCategoria/CardCategoria";
 import "./ListaProdutos.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function ListaProdutos() {
-    {/* Funções de Produto */ }
     const [produtos, setProdutos] = useState<Produto[]>([]);
-
+    const [filteredProdutos, setFilteredProdutos] = useState<Produto[]>([]);
+    const [categorias, setCategorias] = useState<Categoria[]>([]);
     const navigate = useNavigate();
-
+    const location = useLocation();
     const { usuario, handleLogout } = useContext(AuthContext);
     const token = usuario.token;
 
@@ -44,10 +45,22 @@ function ListaProdutos() {
 
     useEffect(() => {
         buscarProdutos();
-    }, [produtos.length]);
+    }, []);
 
-    {/* Funções de Categoria */ }
-    const [categorias, setCategorias] = useState<Categoria[]>([]);
+    useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        const searchQuery = params.get('search')?.toLowerCase() || '';
+
+        if (searchQuery) {
+            setFilteredProdutos(
+                produtos.filter((produto) =>
+                    produto.nomeProduto.toLowerCase().includes(searchQuery)
+                )
+            );
+        } else {
+            setFilteredProdutos(produtos);
+        }
+    }, [location.search, produtos]);
 
     useEffect(() => {
         if (token === '') {
@@ -71,9 +84,8 @@ function ListaProdutos() {
 
     useEffect(() => {
         buscarCategorias();
-    }, [categorias.length]);
+    }, []);
 
-    {/* Funções do Carrossel de Categoria */ }
     const settings = {
         dots: true,
         infinite: true,
@@ -117,8 +129,6 @@ function ListaProdutos() {
     return (
         <div className="bg-cinza-claro bg-cover" style={{ minHeight: "100vh", minWidth: "100%" }}>
             <div className="bg-amarelo-escuro min-h-[200px]">
-
-                {/* Navbar */}
                 <div id="espaço-navbar" className="h-4">
                     <h1></h1>
                 </div>
@@ -126,7 +136,6 @@ function ListaProdutos() {
 
                 <p className="text-cinza-claro font-bold text-center g-4 mt-14 text-base md:text-lg">Procure por Categoria</p>
 
-                {/* Categorias */}
                 <div>
                     <div className="flex justify-center w-full my-5 p-4">
                         <div className="container flex flex-col items-center">
@@ -153,12 +162,10 @@ function ListaProdutos() {
                 <div id="espaço-navbar" className="h-4">
                     <h1></h1>
                 </div>
-
             </div>
 
             <img src="/assets/quadrado-amarelo.png" style={{ minWidth: "100%" }} />
 
-            {/* Produtos */}
             <div>
                 <p className="text-amarelo-escuro uppercase font-bold text-center my-10 text-base md:text-lg">Produtos</p>
                 <div className="flex justify-center w-full p-4">
@@ -175,8 +182,6 @@ function ListaProdutos() {
                         )}
 
                         <div className='container flex flex-col items-center mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4'>
-
-                            {/* Card inicial - Acesso ADM */}
                             <div className="flex justify-center w-full p-4 space-x-4 items-center pt-20 sm:pt-10 md:pt-16 lg:pt-20">
                                 <div className="card border rounded-lg border-verde-escuro w-full items-center sm:w-72 md:w-64 lg:w-72 h-auto sm:h-96 md:h-96 lg:h-96 shadow-xl p-1 sm:p-2 md:p-4 lg:p-1">
                                     <div className="card-body">
@@ -191,9 +196,8 @@ function ListaProdutos() {
                                     </div>
                                 </div>
                             </div>
-                            {/* FIM Card inicial */}
 
-                            {produtos.map((produto) => (
+                            {filteredProdutos.map((produto) => (
                                 <CardProduto key={produto.id} produto={produto} />
                             ))}
                         </div>
@@ -201,12 +205,10 @@ function ListaProdutos() {
                 </div>
             </div>
 
-            {/* Footer */}
             <div className="mt-16">
                 <img src="/assets/quadrado-amarelo.png" style={{ minWidth: "100%" }} />
                 <div className="bg-amarelo-escuro min-h-[40px]"></div>
             </div>
-
         </div>
     );
 }
