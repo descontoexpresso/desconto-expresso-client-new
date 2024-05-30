@@ -33,6 +33,8 @@ const Navbar: React.FC = () => {
         return 'bg-azul';
       case '/listaProdutos':
         return 'bg-amarelo-escuro';
+      case '/listaCategorias':
+        return 'bg-laranja';
       default:
         return 'bg-base-100';
     }
@@ -48,13 +50,15 @@ const Navbar: React.FC = () => {
         return 'border-azul';
       case '/listaProdutos':
         return 'border-amarelo-escuro';
+      case '/listaCategorias':
+        return 'border-laranja';
       default:
         return 'border-base-100';
     }
   };
 
   return (
-    <div className="relative bg-white mx-auto rounded-full max-w-[90%] p-1">
+    <div className="relative bg-cinza-claro mx-auto rounded-full max-w-[90%] p-1">
       <div className="navbar h-14">
         <div className="navbar-start">
           {/* Dropdown para telas pequenas */}
@@ -86,7 +90,7 @@ const Navbar: React.FC = () => {
         </div>
         <div className="navbar-center flex items-center justify-center">
           <div className={`absolute left-1/2 transform -translate-x-1/2 -bottom-8`}>
-            <img src="public/assets/logo.png" alt="Desconto Expresso" className={`w-24 ${dynamicBorderColor()} border-8 rounded-full`}/>
+            <img src="public/assets/logo.png" alt="Desconto Expresso" className={`w-24 ${dynamicBorderColor()} border-8 rounded-full`} />
           </div>
         </div>
 

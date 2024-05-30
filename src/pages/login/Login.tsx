@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import UsuarioLogin from "../../models/UsuarioLogin";
 import { Hourglass } from "react-loader-spinner";
-import Navbar from "../../components/navbar/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 
 
 function Login() {
