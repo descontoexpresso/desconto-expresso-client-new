@@ -5,7 +5,6 @@ import { buscar } from "../../../services/Service";
 import { AuthContext } from "../../../contexts/AuthContext";
 import CardCategorias2 from "../../categorias/cardCategoria/CardCategoria2";
 import { DNA } from "react-loader-spinner";
-import { useNavigate } from "react-router-dom";
 
 function ListaCategorias() {
     {/* Funções de Categoria */ }
@@ -13,7 +12,6 @@ function ListaCategorias() {
 
     const { usuario, handleLogout } = useContext(AuthContext);
     const token = usuario.token;
-    const navigate = useNavigate();
 
     async function buscarCategorias() {
         try {
@@ -27,13 +25,6 @@ function ListaCategorias() {
             }
         }
     }
-
-    useEffect(() => {
-        if (token === '') {
-            alert('Você precisa estar logado');
-            navigate('/login');
-        }
-    }, [token]);
 
     useEffect(() => {
         buscarCategorias();
