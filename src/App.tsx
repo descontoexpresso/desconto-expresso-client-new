@@ -7,6 +7,7 @@ import Home from "./pages/home/Home";
 import ListaProdutos from "./components/produtos/listaProduto/ListaProdutos";
 import Footer from "./components/footer/Footer";
 import ListaCategorias from "./components/categorias/listaCategorias/ListaCategorias";
+import Cadastro from "./pages/cadastro/Cadastro";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/home" element={<Home />} />
             <Route path="/listaProdutos" element={<ListaProdutos />} />
             <Route path="/listaCategorias" element={<ListaCategorias />} />
