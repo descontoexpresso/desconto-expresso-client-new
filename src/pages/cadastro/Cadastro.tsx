@@ -198,7 +198,7 @@ function Cadastro() {
                                     type="text"
                                     id="dataNascimento"
                                     name="dataNascimento"
-                                    placeholder="Data de Nascimento"
+                                    placeholder="Data de Nascimento (aaaa-mm-dd)"
                                     className="border-2 border-white rounded p-2 mt-2 bg-transparent"
                                     value={usuario.dataNascimento}
                                     onChange={atualizarEstado}
@@ -212,7 +212,7 @@ function Cadastro() {
                                     type="number"
                                     id="telefone"
                                     name="telefone"
-                                    placeholder="Telefone"
+                                    placeholder="Telefone (DDD + Número)"
                                     className="border-2 border-white rounded p-2 mt-2 bg-transparent"
                                     value={usuario.telefone}
                                     onChange={atualizarEstado}
@@ -224,7 +224,7 @@ function Cadastro() {
                                     type="text"
                                     id="cep"
                                     name="cep"
-                                    placeholder="CEP"
+                                    placeholder="CEP (Somente Números)"
                                     className="border-2 border-white rounded p-2 mt-2 bg-transparent"
                                     value={usuario.cep}
                                     onChange={handleCEPChange}
