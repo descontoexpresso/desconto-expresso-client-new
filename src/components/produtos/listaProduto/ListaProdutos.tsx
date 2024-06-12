@@ -132,7 +132,7 @@ function ListaProdutos() {
                 <div id="espaço-navbar" className="h-4">
                     <h1></h1>
                 </div>
-                <Navbar />
+                <Navbar fotoUsuario={usuario.fotoUsuario} />
 
                 <p className="text-cinza-claro font-bold text-center g-4 mt-14 text-base md:text-lg">Procure por Categoria</p>
 

@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  fotoUsuario: string; // Defina o tipo correto da foto do usuário
+}
+
+const Navbar: React.FC<NavbarProps> = ({ fotoUsuario }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
@@ -35,6 +39,10 @@ const Navbar: React.FC = () => {
         return 'bg-amarelo-escuro';
       case '/listaCategorias':
         return 'bg-laranja';
+      case '/perfil':
+        return 'bg-verde-escuro';
+      case '/editar-perfil':
+        return 'bg-verde-escuro';
       default:
         return 'bg-base-100';
     }
@@ -52,6 +60,10 @@ const Navbar: React.FC = () => {
         return 'border-amarelo-escuro';
       case '/listaCategorias':
         return 'border-laranja';
+      case '/perfil':
+        return 'border-verde-escuro';
+      case '/editar-perfil':
+        return 'border-verde-escuro';
       default:
         return 'border-base-100';
     }
@@ -77,23 +89,19 @@ const Navbar: React.FC = () => {
           </div>
           {/* Links para telas maiores */}
           <div className="hidden lg:flex space-x-4 text-verde items-center">
-
             <Link to="/perfil">
-              <img src="public/assets/logo.png" alt="Imagem de Perfil" className="w-14 h-14 rounded-full btn-ghost hover:bg-green-100" />
+              <img src={fotoUsuario} alt="Imagem de Perfil" className="w-14 h-14 rounded-full btn-ghost hover:bg-green-100" />
             </Link>
-
             <Link to="/inicio" className="hover:underline">Início</Link>
             <Link to="/listaProdutos" className="hover:underline">Produtos</Link>
             <Link to="/sobre-nos" className="hover:underline">Sobre Nós</Link>
           </div>
-
         </div>
         <div className="navbar-center flex items-center justify-center">
           <div className={`absolute left-1/2 transform -translate-x-1/2 -bottom-8`}>
             <img src="public/assets/logo.png" alt="Desconto Expresso" className={`w-24 ${dynamicBorderColor()} border-8 rounded-full`} />
           </div>
         </div>
-
         <div className="navbar-end">
           <div className={`search-bar ${searchBarColor()} flex items-center justify-center rounded-full p-2`} >
             {/* Ícone de busca */}

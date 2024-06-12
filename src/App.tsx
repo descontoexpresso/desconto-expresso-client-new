@@ -8,6 +8,8 @@ import ListaProdutos from "./components/produtos/listaProduto/ListaProdutos";
 import Footer from "./components/footer/Footer";
 import ListaCategorias from "./components/categorias/listaCategorias/ListaCategorias";
 import Cadastro from "./pages/cadastro/Cadastro";
+import Perfil from "./pages/perfil/Perfil";
+import EditarPerfil from "./pages/perfil/EditarPerfil";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/perfil" element={<Perfil />} />
+            <Route path="/editar-perfil" element={<EditarPerfil/>} />
             <Route path="/listaProdutos" element={<ListaProdutos />} />
             <Route path="/listaCategorias" element={<ListaCategorias />} />
           </Routes>
