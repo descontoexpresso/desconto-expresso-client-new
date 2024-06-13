@@ -1,0 +1,35 @@
+
+@media (max-width: 900px) {
+
+    .main {
+        flex-wrap: wrap;
+        padding-top: 0;
+        padding: 0 0;
+
+    }
+
+    .square {
+        border-radius: 0;
+    }
+
+    .side span {
+        max-width: 100%;
+        /* Define a largura máxima como 100% */
+    }
+}
+
+@media (max-width: 550px) {
+
+    .main-imagem {
+        font-weight: bold;
+        text-align: center;
+        word-break: break-all;
+        width: 210px;
+    }
+
+    .btn {
+        width: 125px;
+        ;
+
+    }
+}
