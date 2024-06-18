@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Categoria from '../../../models/Categoria'
 
 interface CardCategoriaProps {
@@ -25,12 +26,18 @@ function CardCategorias2({ categoria }: CardCategoriaProps) {
 
                 {/* Botões */}
                 <div className="card-actions justify-center m-3">
-                    <button className="btn bg-verde rounded-r-none mr-0 sm:mr-3.5 md:mr-0 lg:mr-0 w-full sm:w-auto md:w-40 lg:w-40 text-white hover:bg-verde-amarelado">
+                    <Link
+                        to={`/editarCategoria/${categoria.id}`}
+                        className="btn bg-verde rounded-r-none mr-0 sm:mr-3.5 md:mr-0 lg:mr-0 w-full sm:w-auto md:w-40 lg:w-40 text-white hover:bg-verde-amarelado"
+                    >
                         Editar
-                    </button>
-                    <button className="btn bg-vermelho rounded-l-none ml-0 sm:ml-3.5 md:ml-0 lg:ml-0 w-full sm:w-auto md:w-40 lg:w-40 text-white hover:bg-vermelho-claro">
+                    </Link>
+                    <Link
+                        to={`/deletarCategoria/${categoria.id}`}
+                        className="btn bg-vermelho rounded-l-none ml-0 sm:ml-3.5 md:ml-0 lg:ml-0 w-full sm:w-auto md:w-40 lg:w-40 text-white hover:bg-vermelho-claro"
+                    >
                         Excluir
-                    </button>
+                    </Link>
                 </div>
 
             </div>

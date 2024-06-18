@@ -45,6 +45,12 @@ const Navbar: React.FC<NavbarProps> = ({ fotoUsuario }) => {
         return 'bg-verde-escuro';
       case '/editar-perfil':
         return 'bg-verde-escuro';
+      case '/cadastrarCategoria':
+        return 'bg-laranja';
+      case '/editarCategoria/:id':
+        return 'bg-laranja';
+      case '/deletarCategoria/:id':
+        return 'bg-laranja';
       default:
         return 'bg-base-100';
     }
@@ -68,6 +74,12 @@ const Navbar: React.FC<NavbarProps> = ({ fotoUsuario }) => {
         return 'border-verde-escuro';
       case '/editar-perfil':
         return 'border-verde-escuro';
+      case '/cadastrarCategoria':
+        return 'border-laranja';
+      case '/editarCategoria/:id':
+        return 'border-laranja';
+      case '/deletarCategoria/:id':
+        return 'border-laranja';
       default:
         return 'border-base-100';
     }
@@ -88,7 +100,7 @@ const Navbar: React.FC<NavbarProps> = ({ fotoUsuario }) => {
               <Link to="/inicio" className="hover:underline">Perfil</Link>
               <Link to="/inicio" className=" hover:underline">Início</Link>
               <Link to="/listaProdutos" className="hover:underline">Produtos</Link>
-              <Link to="/sobre-nos" className="hover:underline">Sobre Nós</Link>
+              <Link to="/listaCategorias" className="hover:underline">Sobre Nós</Link>
             </ul>
           </div>
           {/* Links para telas maiores */}
@@ -98,7 +110,7 @@ const Navbar: React.FC<NavbarProps> = ({ fotoUsuario }) => {
             </Link>
             <Link to="/inicio" className="hover:underline">Início</Link>
             <Link to="/listaProdutos" className="hover:underline">Produtos</Link>
-            <Link to="/sobre-nos" className="hover:underline">Sobre Nós</Link>
+            <Link to="/listaCategorias" className="hover:underline">Sobre Nós</Link>
           </div>
         </div>
         <div className="navbar-center flex items-center justify-center">

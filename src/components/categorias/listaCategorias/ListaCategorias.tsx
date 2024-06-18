@@ -5,6 +5,7 @@ import { buscar } from "../../../services/Service";
 import { AuthContext } from "../../../contexts/AuthContext";
 import CardCategorias2 from "../../categorias/cardCategoria/CardCategoria2";
 import { DNA } from "react-loader-spinner";
+import { Link } from "react-router-dom";
 
 function ListaCategorias() {
     {/* Funções de Categoria */ }
@@ -38,7 +39,7 @@ function ListaCategorias() {
                 <div id="espaço-navbar" className="h-4">
                     <h1></h1>
                 </div>
-                <Navbar />
+                <Navbar fotoUsuario={usuario.fotoUsuario} />
 
             </div>
 
@@ -71,9 +72,9 @@ function ListaCategorias() {
                                                 CAJUUU
                                             </div>
                                             <div className="card-body flex flex-col items-center justify-center space-y-2 md:space-y-4">
-                                                <button className="btn bg-amarelo rounded-lg border-none w-full md:w-66 text-laranja p-4 hover:bg-amarelo-claro">
+                                                <Link to="/cadastrarCategoria" className="btn bg-amarelo rounded-lg border-none w-full md:w-66 text-laranja p-4 hover:bg-amarelo-claro">
                                                     Cadastrar Categoria
-                                                </button>
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>

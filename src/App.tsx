@@ -13,6 +13,9 @@ import EditarPerfil from "./pages/perfil/EditarPerfil";
 import FormularioCadastrarProduto from "./components/produtos/formularioProduto/FormularioCadastrarProduto";
 import FormularioEditarProduto from "./components/produtos/formularioProduto/FormularioEditarProduto";
 import DeletarProduto from "./components/produtos/deletarProduto/DeletarProduto";
+import FormularioCadastrarCategoria from "./components/categorias/formularioCategoria/FormularioCadastrarCategoria";
+import FormularioEditarCategoria from "./components/categorias/formularioCategoria/FormularioEditarCategoria";
+import DeletarCategoria from "./components/categorias/deletarCategoria/DeletarCategoria";
 
 function App() {
   return (
@@ -31,6 +34,9 @@ function App() {
             <Route path="/cadastrarProduto" element={<FormularioCadastrarProduto />} />
             <Route path="/editarProduto/:id" element={<FormularioEditarProduto />} />
             <Route path="/deletarProduto/:id" element={<DeletarProduto />} />
+            <Route path="/cadastrarCategoria" element={<FormularioCadastrarCategoria />} />
+            <Route path="/editarCategoria/:id" element={<FormularioEditarCategoria />} />
+            <Route path="/deletarCategoria/:id" element={<DeletarCategoria />} />
           </Routes>
           <Footer />
         </BrowserRouter>
