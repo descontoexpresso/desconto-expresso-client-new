@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import sideTop from "../../../../public/assets/sideTop.png";
-import sideDown from "../../../../public/assets/sideDown.png";
-import destaqueEsquerda from "../../../../public/assets/destaque-esquerda.png"
+import sideTop from "../../../public/assets/sideTop.png";
+import sideDown from "../../../public/assets/sideDown.png";
+import destaqueEsquerda from "../../../public/assets/destaque-esquerda.png"
 import "./Destaques.css";
 
 function Destaques() {

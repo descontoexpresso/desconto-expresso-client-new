@@ -29,7 +29,8 @@ export default {
         urbanist: ['Urbanist', 'sans-serif'],
       },
       backgroundImage: {
-        "fundo-login": "url('./assets/fundo-login.png')"
+        "fundo-login": "url('./assets/fundo-login.png')",
+        "fundo-form": "url('../public/assets/fundo-form-caju2.png')",
       }
     },
   },

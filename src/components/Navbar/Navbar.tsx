@@ -33,6 +33,8 @@ const Navbar: React.FC<NavbarProps> = ({ fotoUsuario }) => {
         return 'bg-verde';
       case '/':
         return 'bg-verde-escuro';
+      case '/login':
+        return 'bg-verde-escuro';
       case '/sobre-nos':
         return 'bg-azul';
       case '/listaProdutos':
@@ -53,6 +55,8 @@ const Navbar: React.FC<NavbarProps> = ({ fotoUsuario }) => {
       case '/home':
         return 'border-verde';
       case '/':
+        return 'border-verde-escuro';
+      case '/login':
         return 'border-verde-escuro';
       case '/sobre-nos':
         return 'border-azul';

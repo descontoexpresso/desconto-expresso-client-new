@@ -12,9 +12,10 @@ import Produto from "../../../models/Produto";
 import CardProduto from "../cardProduto/CardProduto";
 import CardCategorias from "../../categorias/cardCategoria/CardCategoria";
 import "./ListaProdutos.css";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 
 function ListaProdutos() {
+    {/* Funções de Produto */ }
     const [produtos, setProdutos] = useState<Produto[]>([]);
     const [filteredProdutos, setFilteredProdutos] = useState<Produto[]>([]);
     const [categorias, setCategorias] = useState<Categoria[]>([]);
@@ -69,6 +70,7 @@ function ListaProdutos() {
         }
     }, [token]);
 
+    {/* Funções de Categoria */ }
     async function buscarCategorias() {
         try {
             await buscar('/categorias', setCategorias, {
@@ -86,6 +88,7 @@ function ListaProdutos() {
         buscarCategorias();
     }, []);
 
+    {/* Funções do Carrossel de Categoria */ }
     const settings = {
         dots: true,
         infinite: true,
@@ -93,6 +96,8 @@ function ListaProdutos() {
         slidesToShow: 3,
         slidesToScroll: 1,
         arrows: false,
+        autoplay: true,
+        autoplaySpeed: 3000,
         responsive: [
             {
                 breakpoint: 1024,
@@ -102,6 +107,8 @@ function ListaProdutos() {
                     infinite: true,
                     dots: true,
                     arrows: false,
+                    autoplay: true,
+                    autoplaySpeed: 3000,
                 },
             },
             {
@@ -112,6 +119,8 @@ function ListaProdutos() {
                     initialSlide: 2,
                     dots: true,
                     arrows: false,
+                    autoplay: true,
+                    autoplaySpeed: 3000,
                 },
             },
             {
@@ -121,6 +130,8 @@ function ListaProdutos() {
                     slidesToScroll: 1,
                     dots: true,
                     arrows: false,
+                    autoplay: true,
+                    autoplaySpeed: 3000,
                 },
             },
         ],
@@ -129,6 +140,8 @@ function ListaProdutos() {
     return (
         <div className="bg-cinza-claro bg-cover" style={{ minHeight: "100vh", minWidth: "100%" }}>
             <div className="bg-amarelo-escuro min-h-[200px]">
+
+                {/* Navbar */}
                 <div id="espaço-navbar" className="h-4">
                     <h1></h1>
                 </div>
@@ -136,6 +149,7 @@ function ListaProdutos() {
 
                 <p className="text-cinza-claro font-bold text-center g-4 mt-14 text-base md:text-lg">Procure por Categoria</p>
 
+                {/* Categorias */}
                 <div>
                     <div className="flex justify-center w-full my-5 p-4">
                         <div className="container flex flex-col items-center">
@@ -166,6 +180,7 @@ function ListaProdutos() {
 
             <img src="/assets/quadrado-amarelo.png" style={{ minWidth: "100%" }} />
 
+            {/* Produtos */}
             <div>
                 <p className="text-amarelo-escuro uppercase font-bold text-center my-10 text-base md:text-lg">Produtos</p>
                 <div className="flex justify-center w-full p-4">
@@ -182,6 +197,8 @@ function ListaProdutos() {
                         )}
 
                         <div className='container flex flex-col items-center mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4'>
+
+                            {/* Card inicial - Acesso ADM */}
                             <div className="flex justify-center w-full p-4 space-x-4 items-center pt-20 sm:pt-10 md:pt-16 lg:pt-20">
                                 <div className="card border rounded-lg border-verde-escuro w-full items-center sm:w-72 md:w-64 lg:w-72 h-auto sm:h-96 md:h-96 lg:h-96 shadow-xl p-1 sm:p-2 md:p-4 lg:p-1">
                                     <div className="card-body">
@@ -189,13 +206,14 @@ function ListaProdutos() {
                                             CAJUUU
                                         </div>
                                         <div className="card-actions justify-center">
-                                            <button className="btn bg-laranja rounded-lg w-52 text-amarelo p-4 hover:bg-laranja-claro hover:text-white">
+                                            <Link to="/cadastrarProduto" className="btn bg-laranja rounded-lg w-52 text-amarelo p-4 hover:bg-laranja-claro hover:text-white">
                                                 Cadastrar Produto
-                                            </button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            {/* FIM Card inicial */}
 
                             {filteredProdutos.map((produto) => (
                                 <CardProduto key={produto.id} produto={produto} />
@@ -205,10 +223,12 @@ function ListaProdutos() {
                 </div>
             </div>
 
+            {/* Footer */}
             <div className="mt-16">
                 <img src="/assets/quadrado-amarelo.png" style={{ minWidth: "100%" }} />
                 <div className="bg-amarelo-escuro min-h-[40px]"></div>
             </div>
+
         </div>
     );
 }

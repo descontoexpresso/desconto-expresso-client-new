@@ -2,6 +2,7 @@
 //import { Link } from "react-router-dom";
 import Produto from "../../../models/Produto";
 import placeholderImage from "../../../../public/assets/placeholder-image.jpg";
+import { Link } from "react-router-dom";
 
 interface CardProdutoProps {
   produto: Produto;
@@ -54,12 +55,18 @@ const CardProduto: React.FC<CardProdutoProps> = ({ produto }) => {
             </div>
           </p>
           <div className="card-actions justify-center">
-            <button className="btn bg-verde rounded-r-none mr-0 sm:mr-3.5 md:mr-0 lg:mr-0 w-full sm:w-auto md:w-24 lg:w-24 text-white hover:bg-verde-amarelado">
+            <Link
+              to={`/editarProduto/${produto.id}`}
+              className="btn bg-verde rounded-r-none mr-0 sm:mr-3.5 md:mr-0 lg:mr-0 w-full sm:w-auto md:w-24 lg:w-24 text-white hover:bg-verde-amarelado"
+            >
               Editar
-            </button>
-            <button className="btn bg-vermelho rounded-l-none ml-0 sm:ml-3.5 md:ml-0 lg:ml-0 w-full sm:w-auto md:w-24 lg:w-24 text-white hover:bg-vermelho-claro">
+            </Link>
+            <Link
+              to={`/deletarProduto/${produto.id}`}
+              className="btn bg-vermelho rounded-l-none ml-0 sm:ml-3.5 md:ml-0 lg:ml-0 w-full sm:w-auto md:w-24 lg:w-24 text-white hover:bg-vermelho-claro"
+            >
               Excluir
-            </button>
+            </Link>
           </div>
         </div>
       </div>
