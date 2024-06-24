@@ -5,7 +5,7 @@ import Usuario from '../../models/Usuario';
 import { cadastrarUsuario } from '../../services/Service';
 import './Cadastro.css';
 import axios from 'axios';
-import placeholderImage from '../../assets/image-cadastro.png';
+import placeholderImage from '../../../public/assets/placeholder-perfil.png';
 
 interface ProfileCardProps {
     photoUrl: string;
@@ -152,7 +152,7 @@ function Cadastro() {
     return (
         <>
             <div className="flex justify-center items-center min-h-screen bg-fundo-login bg-cover bg-center">
-                <div className="flex flex-col lg:flex-row bg-transparent shadow-lg rounded-lg p-6 lg:p-10 m-4 lg:gap-12">
+                <div className="flex flex-col lg:flex-row bg-transparent shadow-none rounded-lg p-6 lg:p-10 m-4 lg:gap-12">
                     <form className="bg-black bg-opacity-50 p-9 rounded-lg shadow-lg w-full lg:w-3/4 text-white" onSubmit={cadastrarNovoUsuario}>
                         <h2 className='text-center text-5xl mb-8'>Cadastro</h2>
                         <div className="flex flex-col mb-4">

@@ -3,7 +3,7 @@ import { FaSearch } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 interface NavbarProps {
-  fotoUsuario: string; // Defina o tipo correto da foto do usuário
+  fotoUsuario?: string; // Defina o tipo correto da foto do usuário
 }
 
 const Navbar: React.FC<NavbarProps> = ({ fotoUsuario }) => {
