@@ -45,6 +45,12 @@ const Navbar: React.FC<NavbarProps> = ({ fotoUsuario }) => {
         return 'bg-verde-escuro';
       case '/editar-perfil':
         return 'bg-verde-escuro';
+      case '/cadastrarProduto':
+        return 'bg-verde';
+      case '/editarProduto/:id':
+        return 'bg-verde';
+      case '/deletarProduto/:id':
+        return 'bg-verde';
       case '/cadastrarCategoria':
         return 'bg-laranja';
       case '/editarCategoria/:id':
@@ -74,6 +80,12 @@ const Navbar: React.FC<NavbarProps> = ({ fotoUsuario }) => {
         return 'border-verde-escuro';
       case '/editar-perfil':
         return 'border-verde-escuro';
+      case '/cadastrarProduto':
+        return 'border-verde';
+      case '/deletarProduto/:id':
+        return 'border-verde';
+      case '/editarProduto/:id':
+        return 'border-verde';
       case '/cadastrarCategoria':
         return 'border-laranja';
       case '/editarCategoria/:id':
@@ -98,7 +110,7 @@ const Navbar: React.FC<NavbarProps> = ({ fotoUsuario }) => {
             </div>
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-base-100 rounded-box w-52 text-verde">
               <Link to="/inicio" className="hover:underline">Perfil</Link>
-              <Link to="/inicio" className=" hover:underline">Início</Link>
+              <Link to="/home" className=" hover:underline">Início</Link>
               <Link to="/listaProdutos" className="hover:underline">Produtos</Link>
               <Link to="/listaCategorias" className="hover:underline">Sobre Nós</Link>
             </ul>
@@ -108,7 +120,7 @@ const Navbar: React.FC<NavbarProps> = ({ fotoUsuario }) => {
             <Link to="/perfil">
               <img src={fotoUsuario} alt="Imagem de Perfil" className="w-14 h-14 rounded-full btn-ghost hover:bg-green-100" />
             </Link>
-            <Link to="/inicio" className="hover:underline">Início</Link>
+            <Link to="/home" className="hover:underline">Início</Link>
             <Link to="/listaProdutos" className="hover:underline">Produtos</Link>
             <Link to="/listaCategorias" className="hover:underline">Sobre Nós</Link>
           </div>

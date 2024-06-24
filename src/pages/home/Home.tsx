@@ -21,9 +21,7 @@ const Home: React.FC = () => {
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 
-  {
-    /* Funções de Categoria */
-  }
+  {/* Funções de Categoria */ }
   const [categorias, setCategorias] = useState<Categoria[]>([]);
 
   async function buscarCategorias() {
@@ -43,9 +41,12 @@ const Home: React.FC = () => {
     buscarCategorias();
   }, [categorias.length]);
 
-  {
-    /* Funções do Carrossel1 */
-  }
+  {/* Funções do Carrossel1 */ }
+  const [sliderKey, setSliderKey] = useState(0);
+
+  useEffect(() => {
+    setSliderKey(prevKey => prevKey + 1);
+  }, [navigate]);
 
   const settings1 = {
     dots: true,
@@ -58,9 +59,7 @@ const Home: React.FC = () => {
     autoplaySpeed: 3000
   }
 
-  {
-    /* Funções do Carrossel de Categoria */
-  }
+  {/* Funções do Carrossel de Categoria */ }
   const settings2 = {
     dots: true,
     infinite: true,
@@ -68,6 +67,8 @@ const Home: React.FC = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
     arrows: false,
+    autoplay: true,
+    autoplaySpeed: 3000,
     responsive: [
       {
         breakpoint: 1024,
@@ -77,6 +78,8 @@ const Home: React.FC = () => {
           infinite: true,
           dots: true,
           arrows: false,
+          autoplay: true,
+          autoplaySpeed: 3000,
         },
       },
       {
@@ -87,6 +90,8 @@ const Home: React.FC = () => {
           initialSlide: 2,
           dots: true,
           arrows: false,
+          autoplay: true,
+          autoplaySpeed: 3000,
         },
       },
       {
@@ -96,70 +101,85 @@ const Home: React.FC = () => {
           slidesToScroll: 1,
           dots: true,
           arrows: false,
+          autoplay: true,
+          autoplaySpeed: 3000,
         },
       },
     ],
   };
 
-
   return (
-    <>
-      <div className="body overflow-x-hidden">
+    <div className="bg-cinza-claro bg-cover" style={{ minHeight: "100vh", minWidth: "100%" }}>
+
+      {/* Header com Carrossel */}
+      <div className="bg-verde min-h-[20px]">
+
         {/* Navbar */}
-        <div className="bg-verde">
-          <div id="espaço-navbar" className="h-4">
-            <h1></h1>
-          </div>
-          <Navbar fotoUsuario={usuario.fotoUsuario} />
-        </div>
-        <div className="header bg-verde text-white h-2/3 flex justify-center items-center gap-12 pt-32 pb-20">
-          <div className="flex justify-center items-center max-w-[90%] h-5/6 bg-white rounded-lg">
-            <Slider {...settings1} className="w-full h-full p-4 rounded-lg">
+        <div id="espaço-navbar" className="h-4"><h1></h1></div>
+        <Navbar fotoUsuario={usuario.fotoUsuario} />
+
+        {/* Carrossel */}
+        <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center max-w-[90%] h-5/6 bg-cinza-claro rounded-lg mt-14">
+          <Slider key={sliderKey} {...settings1} className="w-full h-full p-4 rounded-lg">
               <div>
-                <img src={Home1} alt="" className="rounded-lg md:h-96 w-full h-full object-cover" style={{ minWidth: "100%", minHeight: "100% " }} />
+                <img src={Home1} alt="" className="rounded-lg md:h-96 w-full h-full object-cover" style={{ minWidth: "100%", minHeight: "100%" }} />
               </div>
               <div>
-                <img src={Home2} alt="" className="rounded-lg md:h-96 w-full h-full object-cover" style={{ minWidth: "100%", minHeight: "100% " }} />
+                <img src={Home2} alt="" className="rounded-lg md:h-96 w-full h-full object-cover" style={{ minWidth: "100%", minHeight: "100%" }} />
               </div>
             </Slider>
           </div>
         </div>
-        {/* Linha */}
-        <img src="/assets/quadrado-verde.png" style={{ minWidth: "100%" }} />
-        <div className="destaques bg-white text-white lg:pl-5">
-          <Destaques />
-        </div>
-        <img src="/assets/quadrado-verde.png" style={{ minWidth: "100%" }} />
-        <div className="categorias bg-white w-full">
-          <h1 className="text-verde bg-white flex justify-center pt-9 font-semibold text-4xl">
-            CATEGORIAS
-          </h1>
-          {/* Categorias */}
 
-          <div className="flex bg-white justify-center w-full p-4 pb-9">
-            <div className="container flex flex-col items-center">
-              {categorias.length === 0 ? (
-                <DNA
-                  visible={true}
-                  height="200"
-                  width="200"
-                  ariaLabel="dna-loading"
-                  wrapperStyle={{}}
-                  wrapperClass="dna-wrapper mx-auto"
-                />
-              ) : (
-                <Slider {...settings2} className="w-full">
-                  {categorias.map((categoria) => (
-                    <CardCategorias key={categoria.id} categoria={categoria} />
-                  ))}
-                </Slider>
-              )}
-            </div>
-          </div>
-        </div>
-        <img src="/assets/quadrado-verde.png" style={{ minWidth: "100%" }} />
+        <div id="espaço-navbar" className="h-4"><h1></h1></div>
+        <div id="espaço-navbar" className="h-4"><h1></h1></div>
+        <div id="espaço-navbar" className="h-4"><h1></h1></div>
       </div>
-    </>
+
+      {/* Linha */}
+      <img src="/assets/quadrado-verde.png" style={{ minWidth: "100%" }} />
+
+      {/* Destaques */}
+      <div className="destaques text-white lg:pl-5 p-6">
+        <Destaques />
+      </div>
+
+      <img src="/assets/quadrado-verde.png" style={{ minWidth: "100%" }} />
+
+      {/* Carrossel Categorias */}
+      <h1 className="text-verde flex justify-center pt-9 font-semibold text-2xl">
+        CATEGORIAS
+      </h1>
+
+      <div className="flex justify-center w-full p-4 pb-9">
+        <div className="container flex flex-col items-center">
+          {categorias.length === 0 ? (
+            <DNA
+              visible={true}
+              height="200"
+              width="200"
+              ariaLabel="dna-loading"
+              wrapperStyle={{}}
+              wrapperClass="dna-wrapper mx-auto"
+            />
+          ) : (
+            <Slider {...settings2} className="w-full">
+              {categorias.map((categoria) => (
+                <CardCategorias key={categoria.id} categoria={categoria} />
+              ))}
+            </Slider>
+          )}
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div>
+        <img src="/assets/quadrado-verde.png" style={{ minWidth: "100%" }} />
+        <div className="bg-verde min-h-[40px]"></div>
+      </div>
+
+    </div>
   );
 };
 

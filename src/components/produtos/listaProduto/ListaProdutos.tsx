@@ -6,7 +6,7 @@ import { buscar } from "../../../services/Service";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Categoria from './../../../models/Categoria';
+import Categoria from './../../../models/Categoria'; 
 import Navbar from "../../Navbar/Navbar";
 import Produto from "../../../models/Produto";
 import CardProduto from "../cardProduto/CardProduto";
