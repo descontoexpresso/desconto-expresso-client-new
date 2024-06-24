@@ -1,0 +1,7 @@
+.icon-hover {
+    transition: color 0.3s ease-in-out;
+}
+
+.icon-hover:hover {
+    color: #B2B251; 
+}

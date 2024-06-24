@@ -1,13 +1,47 @@
-import React from 'react';
-import './App.css';
+//import React from 'react';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Login from "./pages/login/Login";
+import { AuthProvider } from "./contexts/AuthContext";
+import Home from "./pages/home/Home";
+import ListaProdutos from "./components/produtos/listaProduto/ListaProdutos";
+import Footer from "./components/footer/Footer";
+import ListaCategorias from "./components/categorias/listaCategorias/ListaCategorias";
+import Cadastro from "./pages/cadastro/Cadastro";
+import Perfil from "./pages/perfil/Perfil";
+import EditarPerfil from "./pages/perfil/EditarPerfil";
+import FormularioCadastrarProduto from "./components/produtos/formularioProduto/FormularioCadastrarProduto";
+import FormularioEditarProduto from "./components/produtos/formularioProduto/FormularioEditarProduto";
+import DeletarProduto from "./components/produtos/deletarProduto/DeletarProduto";
+import FormularioCadastrarCategoria from "./components/categorias/formularioCategoria/FormularioCadastrarCategoria";
+import FormularioEditarCategoria from "./components/categorias/formularioCategoria/FormularioEditarCategoria";
+import DeletarCategoria from "./components/categorias/deletarCategoria/DeletarCategoria";
 
 function App() {
   return (
     <>
-    <h1 className="text-3xl font-bold text-red-500 underline text-center">
-      Hello world!
-    </h1>
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/cadastro" element={<Cadastro />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/perfil" element={<Perfil />} />
+            <Route path="/editar-perfil" element={<EditarPerfil/>} />
+            <Route path="/listaProdutos" element={<ListaProdutos />} />
+            <Route path="/listaCategorias" element={<ListaCategorias />} />
+            <Route path="/cadastrarProduto" element={<FormularioCadastrarProduto />} />
+            <Route path="/editarProduto/:id" element={<FormularioEditarProduto />} />
+            <Route path="/deletarProduto/:id" element={<DeletarProduto />} />
+            <Route path="/cadastrarCategoria" element={<FormularioCadastrarCategoria />} />
+            <Route path="/editarCategoria/:id" element={<FormularioEditarCategoria />} />
+            <Route path="/deletarCategoria/:id" element={<DeletarCategoria />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </AuthProvider>
     </>
-);
+  );
 }
 export default App;
