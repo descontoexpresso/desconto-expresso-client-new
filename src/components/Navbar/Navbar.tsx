@@ -109,7 +109,7 @@ const Navbar: React.FC<NavbarProps> = ({ fotoUsuario }) => {
               </svg>
             </div>
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-base-100 rounded-box w-52 text-verde">
-              <Link to="/inicio" className="hover:underline">Perfil</Link>
+              <Link to="/perfil" className="hover:underline">Perfil</Link>
               <Link to="/home" className=" hover:underline">Início</Link>
               <Link to="/listaProdutos" className="hover:underline">Produtos</Link>
               <Link to="/listaCategorias" className="hover:underline">Sobre Nós</Link>

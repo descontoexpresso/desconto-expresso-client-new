@@ -10,9 +10,8 @@ import { buscar } from "../../services/Service";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import "./Home.css";
-import Home1 from "../../../public/assets/feira-organica1.jpg"
-import Home2 from "../../../public/assets/feira.jpg"
 import Navbar from "../../components/Navbar/Navbar";
+import { toastAlerta } from "../../utils/toastAlerta";
 
 
 const Home: React.FC = () => {
@@ -31,7 +30,7 @@ const Home: React.FC = () => {
       });
     } catch (error: any) {
       if (error.toString().includes("403")) {
-        alert("O token expirou, favor logar novamente");
+        toastAlerta("O token expirou, favor logar novamente", 'info');
         handleLogout();
       }
     }
@@ -44,9 +43,17 @@ const Home: React.FC = () => {
   {/* Funções do Carrossel1 */ }
   const [sliderKey, setSliderKey] = useState(0);
 
+  // No useEffect que controla o sliderKey
   useEffect(() => {
     setSliderKey(prevKey => prevKey + 1);
-  }, [navigate]);
+  }, [navigate, categorias.length]); // Adicionando categorias.length como dependência
+
+  useEffect(() => {
+    // Verifica se o usuário voltou para a página inicial
+    if (window.location.pathname === '/home') {
+      // Atualiza o componente Slider aqui
+    }
+  }, [window.location.pathname]);
 
   const settings1 = {
     dots: true,
@@ -121,12 +128,15 @@ const Home: React.FC = () => {
         {/* Carrossel */}
         <div className="flex justify-center items-center">
           <div className="flex justify-center items-center max-w-[90%] h-5/6 bg-cinza-claro rounded-lg mt-14">
-          <Slider key={sliderKey} {...settings1} className="w-full h-full p-4 rounded-lg">
+            <Slider key={sliderKey} {...settings1} className="w-full h-full p-4 rounded-lg">
               <div>
-                <img src={Home1} alt="" className="rounded-lg md:h-96 w-full h-full object-cover" style={{ minWidth: "100%", minHeight: "100%" }} />
+                <img src="https://imgur.com/5vejGdx.jpg" alt="Imagem 1" className="rounded-lg md:h-96 w-full h-full object-cover" style={{ minWidth: "100%", minHeight: "100%" }} />
               </div>
               <div>
-                <img src={Home2} alt="" className="rounded-lg md:h-96 w-full h-full object-cover" style={{ minWidth: "100%", minHeight: "100%" }} />
+                <img src="https://imgur.com/yNFbyd7.jpg" alt="Imagem 2" className="rounded-lg md:h-96 w-full h-full object-cover" style={{ minWidth: "100%", minHeight: "100%" }} />
+              </div>
+              <div>
+                <img src="https://imgur.com/S2sXwg8.jpg" alt="Imagem 2" className="rounded-lg md:h-96 w-full h-full object-cover" style={{ minWidth: "100%", minHeight: "100%" }} />
               </div>
             </Slider>
           </div>

@@ -16,11 +16,14 @@ import DeletarProduto from "./components/produtos/deletarProduto/DeletarProduto"
 import FormularioCadastrarCategoria from "./components/categorias/formularioCategoria/FormularioCadastrarCategoria";
 import FormularioEditarCategoria from "./components/categorias/formularioCategoria/FormularioEditarCategoria";
 import DeletarCategoria from "./components/categorias/deletarCategoria/DeletarCategoria";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <>
       <AuthProvider>
+        <ToastContainer />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Login />} />
@@ -28,7 +31,7 @@ function App() {
             <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/home" element={<Home />} />
             <Route path="/perfil" element={<Perfil />} />
-            <Route path="/editar-perfil" element={<EditarPerfil/>} />
+            <Route path="/editar-perfil" element={<EditarPerfil />} />
             <Route path="/listaProdutos" element={<ListaProdutos />} />
             <Route path="/listaCategorias" element={<ListaCategorias />} />
             <Route path="/cadastrarProduto" element={<FormularioCadastrarProduto />} />

@@ -5,6 +5,7 @@ import Produto from "../../../models/Produto";
 import Categoria from "../../../models/Categoria";
 import { buscar, atualizar } from "../../../services/Service";
 import Navbar from "../../Navbar/Navbar";
+import { toastAlerta } from "../../../utils/toastAlerta";
 
 function FormularioEditarProduto() {
     const navigate = useNavigate();
@@ -57,7 +58,7 @@ function FormularioEditarProduto() {
 
     useEffect(() => {
         if (token === "") {
-            alert("Você precisa estar logado");
+            toastAlerta('Você precisa estar logado', 'info');
             navigate("/");
         }
     }, [token]);
@@ -94,14 +95,14 @@ function FormularioEditarProduto() {
                     Authorization: token,
                 },
             });
-            alert("Produto atualizado com sucesso");
+            toastAlerta("Produto atualizado com sucesso", 'sucesso');
             navigate("/listaProdutos");
         } catch (error: any) {
             if (error.toString().includes("403")) {
-                alert("O token expirou, favor logar novamente");
+                toastAlerta('O token expirou, favor logar novamente', 'info')
                 handleLogout();
             } else {
-                alert("Erro ao atualizar o Produto");
+                toastAlerta("Erro ao atualizar o Produto", 'erro');
             }
         }
     }

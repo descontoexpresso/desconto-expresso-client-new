@@ -5,6 +5,7 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import Categoria from "../../../models/Categoria";
 import Produto from "../../../models/Produto";
 import { buscar, cadastrar } from "../../../services/Service";
+import { toastAlerta } from "../../../utils/toastAlerta";
 
 function FormularioCadastrarProduto() {
     const navigate = useNavigate();
@@ -41,7 +42,7 @@ function FormularioCadastrarProduto() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado');
+            toastAlerta('Você precisa estar logado', 'info');
             navigate('/');
         }
     }, [token]);
@@ -75,14 +76,14 @@ function FormularioCadastrarProduto() {
                 },
             });
 
-            alert('Produto cadastrado com sucesso');
+            toastAlerta('Produto cadastrado com sucesso', 'sucesso');
             retornar();
         } catch (error: any) {
             if (error.toString().includes('403')) {
-                alert('O token expirou, favor logar novamente')
+                toastAlerta('O token expirou, favor logar novamente', 'info')
                 handleLogout()
             } else {
-                alert('Erro ao cadastrar o Produto'); 
+                toastAlerta('Erro ao cadastrar o Produto', 'erro'); 
             }
         }
     }

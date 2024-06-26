@@ -32,6 +32,7 @@ export default {
         "fundo-login": "url('../public/assets/fundoLogin.png')",
         "fundo-form": "url('../public/assets/fundo-form-caju2.png')",
         "destaque-esquerda": "url('../public/assets/destaque-esquerda.png')",
+        "caju1": "url('../public/assets/caju2.png')",
       }
     },
   },
