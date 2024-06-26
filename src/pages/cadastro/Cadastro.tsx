@@ -6,6 +6,7 @@ import { cadastrarUsuario } from '../../services/Service';
 import './Cadastro.css';
 import axios from 'axios';
 import placeholderImage from '../../../public/assets/placeholder-perfil.png';
+import { toastAlerta } from '../../utils/toastAlerta';
 
 interface ProfileCardProps {
     photoUrl: string;
@@ -104,12 +105,12 @@ function Cadastro() {
             setIsLoading(true);
             try {
                 await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuarioResposta);
-                alert('Usuário cadastrado com sucesso');
+                toastAlerta('Usuário cadastrado com sucesso', 'sucesso');
             } catch (error) {
-                alert('Erro ao cadastrar o Usuário');
+                toastAlerta('Erro ao cadastrar o Usuário', 'erro');
             }
         } else {
-            alert('Dados inconsistentes. Verifique as informações de cadastro.');
+            toastAlerta('Dados inconsistentes. Verifique as informações de cadastro.', 'info');
             setUsuario({
                 ...usuario,
                 senhaUsuario: "",

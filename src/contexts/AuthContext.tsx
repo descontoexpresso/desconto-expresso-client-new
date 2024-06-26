@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useState } from "react";
 import UsuarioLogin from "../models/UsuarioLogin";
 import { login } from "../services/Service";
+import { toastAlerta } from "../utils/toastAlerta";
 
 interface AuthContextProps {
     usuario: UsuarioLogin;
@@ -41,10 +42,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
         try {
             await login(`/usuarios/logar`, userLogin, setUsuario);
             console.log("Dados do usuário após login:", usuario); // Log para verificar os dados do usuário
-            alert("Usuário logado com sucesso");
+            toastAlerta("Usuário logado com sucesso", 'sucesso');
         } catch (error) {
             console.error("Erro ao fazer login:", error);
-            alert("Dados do usuário inconsistentes");
+            toastAlerta("Dados do usuário inconsistentes", 'error');
         } finally {
             setIsLoading(false);
         }

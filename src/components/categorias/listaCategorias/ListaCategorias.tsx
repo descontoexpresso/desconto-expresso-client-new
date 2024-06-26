@@ -6,6 +6,7 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import CardCategorias2 from "../../categorias/cardCategoria/CardCategoria2";
 import { DNA } from "react-loader-spinner";
 import { Link } from "react-router-dom";
+import { toastAlerta } from "../../../utils/toastAlerta";
 
 function ListaCategorias() {
     {/* Funções de Categoria */ }
@@ -21,7 +22,7 @@ function ListaCategorias() {
             });
         } catch (error: any) {
             if (error.toString().includes('403')) {
-                alert('O token expirou, favor logar novamente');
+                toastAlerta('O token expirou, favor logar novamente', 'info');
                 handleLogout();
             }
         }

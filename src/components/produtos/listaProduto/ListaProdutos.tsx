@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useContext, useEffect, useState } from "react";
 import { DNA } from 'react-loader-spinner';
 import { AuthContext } from "../../../contexts/AuthContext";
@@ -13,6 +12,7 @@ import CardProduto from "../cardProduto/CardProduto";
 import CardCategorias from "../../categorias/cardCategoria/CardCategoria";
 import "./ListaProdutos.css";
 import { useNavigate, useLocation, Link } from "react-router-dom";
+import { toastAlerta } from "../../../utils/toastAlerta";
 
 function ListaProdutos() {
     {/* Funções de Produto */ }
@@ -26,7 +26,7 @@ function ListaProdutos() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado');
+            toastAlerta('Você precisa estar logado', 'info');
             navigate('/');
         }
     }, [token]);
@@ -38,7 +38,7 @@ function ListaProdutos() {
             });
         } catch (error: any) {
             if (error.toString().includes('403')) {
-                alert('O token expirou, favor logar novamente');
+                toastAlerta('O token expirou, favor logar novamente', 'info');
                 handleLogout();
             }
         }
@@ -48,14 +48,19 @@ function ListaProdutos() {
         buscarProdutos();
     }, []);
 
+    // Função para remover acentos
+    const removeAcentos = (text: string) => {
+        return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    };
+
     useEffect(() => {
         const params = new URLSearchParams(location.search);
-        const searchQuery = params.get('search')?.toLowerCase() || '';
+        const searchQuery = removeAcentos(params.get('search')?.toLowerCase() || '');
 
         if (searchQuery) {
             setFilteredProdutos(
                 produtos.filter((produto) =>
-                    produto.nomeProduto.toLowerCase().includes(searchQuery)
+                    removeAcentos(produto.nomeProduto.toLowerCase()).includes(searchQuery)
                 )
             );
         } else {
@@ -65,7 +70,7 @@ function ListaProdutos() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado');
+            toastAlerta('Você precisa estar logado', 'info');
             navigate('/login');
         }
     }, [token]);
@@ -78,7 +83,7 @@ function ListaProdutos() {
             });
         } catch (error: any) {
             if (error.toString().includes('403')) {
-                alert('O token expirou, favor logar novamente');
+                toastAlerta('O token expirou, favor logar novamente', 'info');
                 handleLogout();
             }
         }
