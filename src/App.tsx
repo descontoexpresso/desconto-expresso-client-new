@@ -9,7 +9,6 @@ import Footer from "./components/footer/Footer";
 import ListaCategorias from "./components/categorias/listaCategorias/ListaCategorias";
 import Cadastro from "./pages/cadastro/Cadastro";
 import Perfil from "./pages/perfil/Perfil";
-import EditarPerfil from "./pages/perfil/EditarPerfil";
 import FormularioCadastrarProduto from "./components/produtos/formularioProduto/FormularioCadastrarProduto";
 import FormularioEditarProduto from "./components/produtos/formularioProduto/FormularioEditarProduto";
 import DeletarProduto from "./components/produtos/deletarProduto/DeletarProduto";
@@ -31,7 +30,6 @@ function App() {
             <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/home" element={<Home />} />
             <Route path="/perfil" element={<Perfil />} />
-            <Route path="/editar-perfil" element={<EditarPerfil />} />
             <Route path="/listaProdutos" element={<ListaProdutos />} />
             <Route path="/listaCategorias" element={<ListaCategorias />} />
             <Route path="/cadastrarProduto" element={<FormularioCadastrarProduto />} />
