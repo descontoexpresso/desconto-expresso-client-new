@@ -127,7 +127,7 @@ const Navbar: React.FC<NavbarProps> = ({ fotoUsuario }) => {
         </div>
         <div className="navbar-center flex items-center justify-center">
           <div className={`absolute left-1/2 transform -translate-x-1/2 -bottom-8`}>
-            <img src="public/assets/logo.png" alt="Desconto Expresso" className={`w-24 ${dynamicBorderColor()} border-8 rounded-full`} />
+            <img src="https://imgur.com/pOg392C.png" alt="Desconto Expresso" className={`w-24 ${dynamicBorderColor()} border-8 rounded-full`} />
           </div>
         </div>
         <div className="navbar-end">
