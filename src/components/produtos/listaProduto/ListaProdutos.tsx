@@ -207,9 +207,7 @@ function ListaProdutos() {
                             <div className="flex justify-center w-full p-4 space-x-4 items-center pt-20 sm:pt-10 md:pt-16 lg:pt-20">
                                 <div className="card border rounded-lg border-verde-escuro w-full items-center sm:w-72 md:w-64 lg:w-72 h-auto sm:h-96 md:h-96 lg:h-96 shadow-xl p-1 sm:p-2 md:p-4 lg:p-1">
                                     <div className="card-body">
-                                        <div className="flex justify-center items-center bg-amarelo-escuro h-60 text-white rounded-lg mb-5 w-52">
-                                            CAJUUU
-                                        </div>
+                                        <img src="https://imgur.com/hYM9sNG.png" alt="" className="flex justify-center items-center object-cover h-60 text-white rounded-lg mb-5 w-52"/>
                                         <div className="card-actions justify-center">
                                             <Link to="/cadastrarProduto" className="btn bg-laranja rounded-lg w-52 text-amarelo p-4 hover:bg-laranja-claro hover:text-white">
                                                 Cadastrar Produto
