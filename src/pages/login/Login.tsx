@@ -122,7 +122,7 @@ function Login() {
 
           <div className="bg-cinza-claro p-4 text-verde-escuro font-bold rounded-lg h-96 relative">
             <div className="flex justify-center items-center h-52 text-white rounded-lg mb-10 w-72">
-              {/*<img src="../../public/assets/caju2.png" alt="" className="h-52 w-72 object-cover rounded-lg" />*/}
+              <img src="https://imgur.com/zr16GPW.png" alt="" className="h-52 w-72 object-cover rounded-lg" />
             </div>
             <img src="/assets/logo.png" alt="logo" className="w-24 -mt-20 mx-auto border-8 border-cinza-claro rounded-full z-10 relative" />
             <div className="text-2xl flex justify-center">

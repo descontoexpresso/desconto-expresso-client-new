@@ -69,9 +69,7 @@ function ListaCategorias() {
                                     {/* Card inicial - Acesso ADM */}
                                     <div className="flex justify-center w-full my-5 p-4">
                                         <div className="card card-compact bg-laranja rounded-b-none w-full md:w-96 md:h-102">
-                                            <div className="flex justify-center items-center bg-verde text-white rounded-lg w-full h-96 object-cover rounded-b-none">
-                                                CAJUUU
-                                            </div>
+                                            <img src="https://imgur.com/56GUlw0.png" alt="" className="flex justify-center items-center text-white rounded-lg w-full h-96 object-cover rounded-b-none"/>
                                             <div className="card-body flex flex-col items-center justify-center space-y-2 md:space-y-4">
                                                 <Link to="/cadastrarCategoria" className="btn bg-amarelo rounded-lg border-none w-full md:w-66 text-laranja p-4 hover:bg-amarelo-claro">
                                                     Cadastrar Categoria
