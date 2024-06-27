@@ -16,7 +16,9 @@ import FormularioCadastrarCategoria from "./components/categorias/formularioCate
 import FormularioEditarCategoria from "./components/categorias/formularioCategoria/FormularioEditarCategoria";
 import DeletarCategoria from "./components/categorias/deletarCategoria/DeletarCategoria";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
+import ProdutoPage from "./pages/produto/ProdutoPage";
+import SobreNos from "./pages/sobreNos/SobreNos";
 
 function App() {
   return (
@@ -32,12 +34,29 @@ function App() {
             <Route path="/perfil" element={<Perfil />} />
             <Route path="/listaProdutos" element={<ListaProdutos />} />
             <Route path="/listaCategorias" element={<ListaCategorias />} />
-            <Route path="/cadastrarProduto" element={<FormularioCadastrarProduto />} />
-            <Route path="/editarProduto/:id" element={<FormularioEditarProduto />} />
+            <Route
+              path="/cadastrarProduto"
+              element={<FormularioCadastrarProduto />}
+            />
+            <Route
+              path="/editarProduto/:id"
+              element={<FormularioEditarProduto />}
+            />
             <Route path="/deletarProduto/:id" element={<DeletarProduto />} />
-            <Route path="/cadastrarCategoria" element={<FormularioCadastrarCategoria />} />
-            <Route path="/editarCategoria/:id" element={<FormularioEditarCategoria />} />
-            <Route path="/deletarCategoria/:id" element={<DeletarCategoria />} />
+            <Route
+              path="/cadastrarCategoria"
+              element={<FormularioCadastrarCategoria />}
+            />
+            <Route
+              path="/editarCategoria/:id"
+              element={<FormularioEditarCategoria />}
+            />
+            <Route
+              path="/deletarCategoria/:id"
+              element={<DeletarCategoria />}
+            />
+            <Route path="/paginaProduto/:id" element={<ProdutoPage />} />
+            <Route path="/sobrenos" element={<SobreNos />} />
           </Routes>
           <Footer />
         </BrowserRouter>

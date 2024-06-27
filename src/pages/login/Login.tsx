@@ -5,7 +5,6 @@ import UsuarioLogin from "../../models/UsuarioLogin";
 import { Hourglass } from "react-loader-spinner";
 import Navbar from "../../components/Navbar/Navbar";
 
-
 function Login() {
   const navigate = useNavigate();
 
@@ -43,18 +42,16 @@ function Login() {
       >
         {/*Fazer esta div espaç0-navbar em todas as paginas*/}
         <div id="espaço-navbar" className="h-4">
-          <h1>      </h1>
+          <h1> </h1>
         </div>
         <div className="">
-          <Navbar />
+          <Navbar fotoUsuario="https://imgur.com/zr16GPW.png" />
         </div>
         <div className="flex flex-wrap justify-center gap-12 items-center h-screen ">
           <form
             className="bg-black p-6 bg-opacity-50 rounded-lg shadow-lg lg:w-1/3 md:1/3 sm:w-auto lg:h-96 md:h-96 gap-4"
             onSubmit={login}
-
           >
-
             <h2 className="text-white text-5xl text-center">LOGIN</h2>
             <div className="flex flex-col w-full">
               <label className="text-white" htmlFor="emailUsuario">
@@ -67,7 +64,9 @@ function Login() {
                 placeholder="Digite seu e-mail de usuário"
                 className="border-2 border-white rounded p-2 mt-2 bg-transparent mb-5"
                 value={usuarioLogin.emailUsuario}
-                onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  atualizarEstado(e)
+                }
               />
             </div>
             <div className="flex flex-col w-full">
@@ -84,7 +83,9 @@ function Login() {
                 placeholder="Digite sua senha"
                 className="border-2 border-white rounded p-2 mt-2 bg-transparent"
                 value={usuarioLogin.senhaUsuario}
-                onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  atualizarEstado(e)
+                }
               />
             </div>
             <button
@@ -122,9 +123,17 @@ function Login() {
 
           <div className="bg-cinza-claro p-4 text-verde-escuro font-bold rounded-lg h-96 relative">
             <div className="flex justify-center items-center h-52 text-white rounded-lg mb-10 w-72">
-              <img src="https://imgur.com/zr16GPW.png" alt="" className="h-52 w-72 object-cover rounded-lg" />
+              <img
+                src="https://imgur.com/zr16GPW.png"
+                alt=""
+                className="h-52 w-72 object-cover rounded-lg"
+              />
             </div>
-            <img src="/assets/logo.png" alt="logo" className="w-24 -mt-20 mx-auto border-8 border-cinza-claro rounded-full z-10 relative" />
+            <img
+              src="/assets/logo.png"
+              alt="logo"
+              className="w-24 -mt-20 mx-auto border-8 border-cinza-claro rounded-full z-10 relative"
+            />
             <div className="text-2xl flex justify-center">
               Seja Bem Vinde ao
             </div>
@@ -132,7 +141,6 @@ function Login() {
               Desconto Expresso!
             </div>
           </div>
-
         </div>
       </div>
 
@@ -141,7 +149,6 @@ function Login() {
         <img src="/assets/quadrado-branco.png" style={{ minWidth: "100%" }} />
       </div>
     </>
-
   );
 }
 
