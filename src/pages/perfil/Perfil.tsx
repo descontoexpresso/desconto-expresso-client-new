@@ -24,7 +24,7 @@ function Perfil() {
           <Navbar fotoUsuario={usuario.fotoUsuario} />
           <div className="h-4" />
         </div>
-        <img src="public/assets/quadrado-verde-escuro.png" alt="Decorative Background" style={{ minWidth: "100%" }} />
+        <img src="https://imgur.com/2uDKodl.png" alt="Decorative Background" style={{ minWidth: "100%" }} />
         <p className="text-verde-escuro font-bold text-center mt-14 text-4xl uppercase">Meu Perfil</p>
         <div className='p-4'>
           <div className='container mx-auto mt-8 rounded-2xl overflow-hidden'>
@@ -40,7 +40,7 @@ function Perfil() {
           </div>
         </div>
         <div className="mt-16">
-          <img src="public/assets/quadrado-verde-escuro.png" alt="Decorative Background" style={{ minWidth: "100%" }} />
+          <img src="https://imgur.com/2uDKodl.png" alt="Decorative Background" style={{ minWidth: "100%" }} />
           <div className="bg-verde-escuro min-h-[40px]" />
         </div>
       </div>
