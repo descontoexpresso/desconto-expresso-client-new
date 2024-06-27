@@ -45,7 +45,6 @@ const NomeLink: React.FC<NomeLinkProps> = ({ nome, link }) => (
       <NomeLink nome="Bianca Villalba" link="https://www.linkedin.com/in/biancavillalba/" /> {" | "}
       <NomeLink nome="Caio Cajueiro" link="https://www.linkedin.com/in/caio-cajueiro-dev/" /> {" | "}
       <NomeLink nome="Douglas Lima" link="https://www.linkedin.com/in/douglas-queiroz/" /> {" | "}
-      <NomeLink nome="Gustavo Kamimura" link="https://www.linkedin.com/in/gustavokamimura/" /> {" | "}
       <NomeLink nome="Patrícia Byrro" link="https://www.linkedin.com/in/patriciabyrro/" /> {" | "}
       <NomeLink nome="Sabrina Furtado" link="https://www.linkedin.com/in/sabrina-dos-santos-furtado-67374a185/" />
     </div>
