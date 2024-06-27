@@ -10,7 +10,7 @@ import Navbar from "../../components/Navbar/Navbar";
 export default function ProdutoPage() {
   const { id } = useParams();
   const [produto, setProduto] = useState(null as Produto | null);
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
   const [value, setValue] = useState(1);
   const [produtos, setProdutos] = useState<Produto[]>([]);
   const { usuario, handleLogout } = useContext(AuthContext);

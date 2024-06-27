@@ -22,7 +22,7 @@ const SobreNos: React.FC = () => {
   const [colaboradoresData, setColaboradoresData] = React.useState<
     Colaborador[]
   >([]);
-  const { usuario, handleLogout } = useContext(AuthContext);
+  const { usuario } = useContext(AuthContext);
   React.useEffect(() => {
     const fetchColaboradores = async () => {
       const results = await Promise.all(
